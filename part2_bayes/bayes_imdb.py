@@ -1,7 +1,9 @@
 # Part 2: Bayes' theorem on the IMDb reviews, basic Python only (csv and re).
 # We work out P(Positive | keyword) = P(kw | Positive) * P(Positive) / P(kw)
 import csv
+import os
 import re
+import sys
 
 DATA_PATH = "data/IMDB_Dataset.csv"
 
@@ -79,7 +81,13 @@ def markdown_table(results):
 
 
 def main():
-    reviews = load_reviews()
+    # use the path typed in the command, or the default path
+    path = sys.argv[1] if len(sys.argv) > 1 else DATA_PATH
+    if not os.path.exists(path):
+        print("Cannot find the file:", path)
+        print("Put the CSV at that path, or run: python bayes_imdb.py path/to/file.csv")
+        return
+    reviews = load_reviews(path)
     print("Loaded", len(reviews), "reviews")
     print_table("Positive keywords", analyse(reviews, POSITIVE_KEYWORDS))
     print_table("Negative keywords", analyse(reviews, NEGATIVE_KEYWORDS))
