@@ -88,3 +88,26 @@ terrible 0.5000 0.0152 0.0539 0.1413 0.1413 2696
 **Trend:** the cost falls at every update, so m and b move in a direction that reduces the error.
 
 ## Parts 4 coded gradient descent (kenia Umutoni)
+
+### Goal
+
+The goal of this part was to translate our manual handwritten matrix calculations from Part 3 into clean code using Numpy, track how the Mean Squared Error(MSE) cost drops over 3 iterations, and perform  strict gradient verification using SciPy.
+
+### Implementation Details
+- **Hyperparameters used:** Learning rate ($\alpha$) = 0.01, total iterations = 3.
+- **Vectorized equations:**
+  *Predictions: y_hat = X @ m + b
+  *Weights gradient: dj_dm = (2.0 / n) * (X.T @ error)
+  *Bias gradient: dj_db = (2.0 / n) error
+- **Cost tracking:** The initial cost starts at a high *61.0000* and rapidly drops down to *2.164498* by the 3rd iteration, confirming our update logic works perfectly.
+
+### Final Parameters Found
+- **Final m:** [[-1.369037], [1.095583]]
+- **Final b:** [[1.836351], [0.898653]]
+- **Final Cost (J):** 2.164498
+
+### SciPy Verification and Validation
+
+To ensure our analytical derivative formulas were correct, we cross-verified them against SciPy's numerical finite-difference gradients (spicy.optimize.approx_fprime).
+
+- **Result:** The automated check passed completely. The maximum absolute difference between our code's gradients and SciPy's numerical gradients stayed well within our strict tolerance threshold of 1e-4.
