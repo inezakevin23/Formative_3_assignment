@@ -96,9 +96,9 @@ The goal of this part was to translate our manual handwritten matrix calculation
 ### Implementation Details
 - **Hyperparameters used:** Learning rate ($\alpha$) = 0.01, total iterations = 3.
 - **Vectorized equations:**
-  *Predictions: y_hat = X @ m + b
-  *Weights gradient: dj_dm = (2.0 / n) * (X.T @ error)
-  *Bias gradient: dj_db = (2.0 / n) error
+  - *Predictions: y_hat = X @ m + b
+  - *Weights gradient: dj_dm = (2.0 / n) * (X.T @ error)
+  - *Bias gradient: dj_db = (2.0 / n) error
 - **Cost tracking:** The initial cost starts at a high *61.0000* and rapidly drops down to *2.164498* by the 3rd iteration, confirming our update logic works perfectly.
 
 ### Final Parameters Found
