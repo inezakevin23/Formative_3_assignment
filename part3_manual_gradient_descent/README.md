@@ -1,6 +1,6 @@
 ## Part 3: Gradient Descent Manual Calculation
 
-- Handwritten calculations: [Part3_Manual_Calculations.pdf](part3_manual_gradient_descent/Part3_Manual_Calculations.pdf)
+- Handwritten calculations: Part3_Manual_Calculations.pdf(part3_manual_gradient_descent/Part3_Manual_Calculations.pdf)
 - Learning rate: α = 0.01 (not given in the assignment)
 - b is treated as a 2×1 vector (one bias per data point)
 - Who wrote what:
